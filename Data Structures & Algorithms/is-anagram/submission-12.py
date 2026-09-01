@@ -1,0 +1,12 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if(len(s) != len(t)):
+            return False
+        charmap = {}
+        for char in s:
+            charmap[char] = charmap.get(char,0) + 1
+        for char in t:
+            charmap[char] = charmap.get(char,0) - 1
+            if(charmap[char] < 0):
+                return False
+        return True
